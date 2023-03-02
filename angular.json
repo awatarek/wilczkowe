@@ -107,5 +107,7 @@
       }
     }
   },
-  "defaultProject": "wilczkowe"
+  "cli": {
+    "analytics": "9eda2218-f3e7-415e-b268-d66b098b634f"
+  }
 }
