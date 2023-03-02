@@ -1,1 +1,10 @@
-<p>song-details works!</p>
+
+<div class="content">
+    <div class="action-menu">
+        <div (click)="addSong()">{{isInSongList ? "Usuń z śpiewnika" : "Dodaj do śpiewnika"}}</div>
+        <div [routerLink]="['']">Powrót do śpiewnika</div>
+    </div>
+    <div class="song-details">
+        <h3>Wybierz piosenki do śpiewnika</h3>
+    </div>
+</div>

@@ -1,1 +1,21 @@
-<p>songs-list works!</p>
+<div class="content">
+    <div class="action-menu">
+        <div class="check" (click)="checkAll()">
+            {{allSelected$.value ? "Oddznacz wszystko" : "Zaznacz wszystko"}}
+        </div>
+        <div class="generate">Wygeneruj śpiewnik</div>
+    </div>
+    <div class="song-list">
+        <h3>Wybierz piosenki do śpiewnika</h3>
+        <div class="songs-list">
+            <div class="songs-list-item" *ngFor="let item of songs">
+                <label class="song-item-label">
+                    <input type="checkbox" [checked]="isChecked(item.id)" (change)="checkSong(item.id)"> 
+                    <span class="checkmark"></span>
+                </label>
+                <span class="name" [routerLink]="['song',item.id]">{{item.name}}</span>
+                
+            </div>
+        </div>
+    </div>
+</div>
