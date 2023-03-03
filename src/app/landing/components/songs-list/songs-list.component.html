@@ -1,9 +1,11 @@
 <div class="content">
     <div class="action-menu">
-        <div class="check" (click)="checkAll()">
-            {{allSelected$.value ? "Oddznacz wszystko" : "Zaznacz wszystko"}}
+        <div class="check">
+            <span (click)="checkAll()">{{allSelected$.value ? "Oddznacz wszystko" : "Zaznacz wszystko"}}</span>
         </div>
-        <div class="generate">Wygeneruj śpiewnik</div>
+        <div class="generate">
+            <span>Wygeneruj śpiewnik</span> 
+        </div>
     </div>
     <div class="song-list">
         <h3>Wybierz piosenki do śpiewnika</h3>

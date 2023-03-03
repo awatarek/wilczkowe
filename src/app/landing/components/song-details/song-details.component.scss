@@ -24,6 +24,14 @@
     }
 
     .song-details{
+        .cords{
+            font-weight: bold;
+        }
+
+        .cordshow{
+            text-decoration: underline;
+            cursor: pointer;
+        }
         
     }
 }

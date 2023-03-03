@@ -5,6 +5,24 @@
         <div [routerLink]="['']">Powrót do śpiewnika</div>
     </div>
     <div class="song-details">
-        <h3>Wybierz piosenki do śpiewnika</h3>
+        <h3>{{"{{song.title}}"}}</h3>
+        <p>{{"{{song.text}}"}}</p>
+
+        <div>
+            Patrz, patrz, patrz – to Akela nasz! <span class="cords" *ngIf="cordVisible">E H7</span><br>
+            Niech twa buzia śmieje się. <span class="cords" *ngIf="cordVisible">E H7</span><br>
+            Patrz, patrz, patrz – to Akela nasz! <span class="cords" *ngIf="cordVisible">E H7</span><br>
+            Wszyscy prosto stańmy więc. <span class="cords" *ngIf="cordVisible">E H7 E</span><br>
+            Niech twa buzia się uśmiecha. <span class="cords" *ngIf="cordVisible">E H7</span><br>
+            Patrz, patrz, patrz – to Akela nasz!/x2 <span class="cords" *ngIf="cordVisible">E (A) H7</span>
+        </div>
+
+        <p class="cordshow" (click)="cordVisible = !cordVisible">{{cordVisible ? "Ukryj akordy" : "Wyświetl akordy"}}</p>
+
+        <h4>Odsłuchaj nagrania</h4>
+        <audio controls src="/assets/To Akela nasz.mp3"></audio>
+
+        <h4>Nuty</h4>
+        <img src="/assets/nutyxd.png" alt="">
     </div>
 </div>

@@ -13,6 +13,7 @@ export class SongDetailsComponent implements OnInit, OnDestroy {
   public isInSongList: boolean = false;
   private songId: number = 0;
   public subsciption: Subscription;
+  public cordVisible: boolean = false;
 
   constructor(private router: ActivatedRoute, private checkService: CheckedService) { }
 
