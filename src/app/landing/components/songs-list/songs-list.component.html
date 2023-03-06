@@ -4,7 +4,7 @@
             <span (click)="checkAll()">{{allSelected$.value ? "Oddznacz wszystko" : "Zaznacz wszystko"}}</span>
         </div>
         <div class="generate">
-            <span>Wygeneruj śpiewnik</span> 
+            <span [routerLink]="['generate']">Wygeneruj śpiewnik</span> 
         </div>
     </div>
     <div class="song-list">

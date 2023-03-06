@@ -9,7 +9,7 @@
     .action-menu{
         padding:  88px 0 0 20px;
 
-        div{
+        span{
             transition: .3s;
             line-height: 48px;
             margin-bottom: 15px;
@@ -23,16 +23,8 @@
         }
     }
 
-    .song-details{
-        .cords{
-            font-weight: bold;
-        }
-
-        .cordshow{
-            text-decoration: underline;
-            cursor: pointer;
-        }
-        
+    .songs-list ol{
+        padding-left: 1.5rem;
     }
 }
 

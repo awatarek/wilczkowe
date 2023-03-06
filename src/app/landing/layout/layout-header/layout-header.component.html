@@ -1,3 +1,20 @@
 <div class="header">
     <img [routerLink]="['']" src="/assets/logo.png" alt="">
+    <div class="search">
+        <input type="text" placeholder="Wyszukaj piosenkę" (change)="search()" [(ngModel)]="searchTerm"><i class="pi pi-search" (click)="display = !display"></i>
+    </div>
 </div>
+
+
+<p-sidebar [(visible)]="display" [fullScreen]="true" [baseZIndex]="10000">
+    <div class="search-sidebar">
+        <div class="search">
+            <input type="text" (change)="search()" [(ngModel)]="searchTerm" placeholder="Wyszukaj piosenkę"><i class="pi pi-search" (click)="search()"></i>
+        </div>
+        <div class="search-results">
+            <div *ngFor="let result of results" (click)="navigateTo()" [routerLink]="['song',result.id]">
+                {{result.name}}
+            </div>
+        </div>
+    </div>
+</p-sidebar>

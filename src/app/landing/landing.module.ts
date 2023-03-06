@@ -9,19 +9,25 @@ import { RouterModule } from '@angular/router';
 import { LandingRouter } from './landing-routing.router';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {SidebarModule} from 'primeng/sidebar';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SongListGeneratorComponent } from './components/song-list-generator/song-list-generator.component';
 @NgModule({
   declarations: [
     LandingComponent,
     SongsListComponent,
     SongDetailsComponent,
     LayoutHeaderComponent,
-    LayoutFooterComponent
+    LayoutFooterComponent,
+    SongListGeneratorComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(LandingRouter),
-    MatCheckboxModule
+    MatCheckboxModule,
+    SidebarModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class LandingModule { }

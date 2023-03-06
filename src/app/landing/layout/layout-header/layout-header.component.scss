@@ -1,8 +1,119 @@
 .header{
     height: 100px;
     background-color: #EEBA03;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
 
     img{
         height: 100px;
+    }
+
+    .search{
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        padding: 5px;
+        font-weight: 23px;
+        border-bottom: 1px solid black;
+
+        i{
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input{
+            border: 0px;
+            background-color: transparent;
+            color: black;
+            height: 20px;
+            width: 200px;
+
+            &:active, &:focus{
+                outline: 0;
+            }
+
+            &::placeholder{
+                color: black;
+            }
+        }
+    }
+}
+
+.search-sidebar{
+    width: calc(100vw - 60px);
+    min-height: calc(50vh - 40px);
+    position: relative;
+
+    .search{
+        display: block;
+        position: absolute;
+        top: 20%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        min-width: 200px;
+        width: 70%;
+        max-width: 400px;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        padding: 5px;
+        font-weight: 23px;
+        border-bottom: 2px solid black;
+    
+        i{
+            cursor: pointer;
+            font-size: 18px;
+        }
+    
+        input{
+            border: 0px;
+            background-color: transparent;
+            color: black;
+            height: 20px;
+            min-width: 150px;
+            width: calc(100% - 20px);
+            max-width: 350px;
+            font-size: 23px;
+
+            &:active, &:focus{
+                outline: 0;
+            }
+    
+            &::placeholder{
+                color: black;
+            }
+        }
+    }
+
+    .search-results{
+        display: block;
+        position: absolute;
+        top: calc(20% + 20px);
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        min-height: 300px;
+        min-width: 200px;
+        width: 70%;
+        max-width: 400px;
+        padding: 5px;
+        font-weight: 23px;
+
+        div{
+            border-bottom: 1px solid #EEBA03;
+            font-size: 23px;
+            cursor: pointer;
+            padding-bottom: 3px;
+            margin-bottom: 5px;
+            color: #15172B;
+            transition: .3s;
+            &:hover{
+                color: #EEBA03;
+            }
+        }
     }
 }

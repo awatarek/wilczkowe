@@ -1,0 +1,18 @@
+<div class="content">
+    <div class="action-menu">
+        <div class="check">
+            <span>Pobierz śpiewnik w PDF</span>
+        </div>
+        <div class="generate">
+            <span [routerLink]="['']">Wróć do listy piosenek</span> 
+        </div>
+    </div>
+    <div class="song-list">
+        <h3>Wybrane piosenki</h3>
+        <div class="songs-list">
+            <ol>
+                <li *ngFor="let item of checkedSongs">{{item.name}}</li>
+            </ol>
+        </div>
+    </div>
+</div>
