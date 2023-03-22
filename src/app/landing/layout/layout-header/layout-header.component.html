@@ -1,7 +1,7 @@
 <div class="header">
     <img [routerLink]="['']" src="/assets/logo.png" alt="">
     <div class="search">
-        <input type="text" placeholder="Wyszukaj piosenkę" (change)="search()" [(ngModel)]="searchTerm"><i class="pi pi-search" (click)="display = !display"></i>
+        <input type="text" placeholder="Wyszukaj piosenkę" (keyup.enter)="display = true" (change)="search()" [(ngModel)]="searchTerm"><i class="pi pi-search" (click)="display = !display"></i>
     </div>
 </div>
 

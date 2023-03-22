@@ -1,0 +1,9 @@
+.content{
+    display: grid;
+    width: calc(100% - 20px);
+    min-height: calc(100vh - 175px);
+    padding: 10px;
+
+    grid-template-columns: 1fr 3fr;
+    font-size: 23px;
+}

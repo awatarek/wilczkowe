@@ -1,7 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
+import { MenuItem } from '../../model/menuItem.model';
 import { CheckedService } from '../../service';
+import { MenuService } from '../../service/menu.service';
 
 @Component({
   selector: 'app-songs-list',
@@ -11,7 +13,8 @@ import { CheckedService } from '../../service';
 export class SongsListComponent implements OnInit, OnDestroy {
 
   public allSelected$ = new BehaviorSubject<boolean>(false);
-  public checkSubscription: Subscription;
+  public allSelectedService$ = new Subject<boolean>();
+  public subscriptions: Subscription[] = [];
   
   public checked: Number[] = [];
   public songs: {name: string, id: number}[] = [
@@ -24,11 +27,23 @@ export class SongsListComponent implements OnInit, OnDestroy {
     {name: "Czuwaj wilczku", id: 7},
   ];
 
-  constructor(private checkService: CheckedService) { }
+  public menuItems: MenuItem[] = [
+    {text: "Zaznacz Wszystko", hasOnClick: true, function: this.allSelectedService$, hasRouter: false},
+    {text: "Wygeneruj śpiewnik", hasOnClick: false, hasRouter: true, route: "generate"}
+  ]
+
+  constructor(private checkService: CheckedService, private menuService: MenuService) { }
 
   async ngOnInit(): Promise<void> {
-    this.checkSubscription = (await this.checkService.getChecked()).subscribe(v => this.checked = v);
+    this.subscriptions.push(this.allSelectedService$.subscribe(v => this.checkAll()));
+    this.subscriptions.push((await this.checkService.getChecked()).subscribe(v => this.checked = v));
     this.allSelected$.next(this.checked.length == this.songs.length);
+
+    if(this.allSelected$.value){
+      this.menuItems[0].text="Oddznacz wszystko";
+    }
+
+    await this.menuService.set(this.menuItems);await this.menuService.set(this.menuItems);
   }
 
   public isChecked(id: number){
@@ -48,9 +63,13 @@ export class SongsListComponent implements OnInit, OnDestroy {
   public async checkAll(){
     if(this.allSelected$.value){
       this.allSelected$.next(false);
+      this.menuItems[0].text = "Zaznacz wszystko";
+      await this.menuService.set(this.menuItems);
       await this.checkService.reset();
     } else {
       this.allSelected$.next(true);
+      this.menuItems[0].text = "Oddznacz wszystko";
+      await this.menuService.set(this.menuItems);
       let check = this.songs.map(val => val.id);
       await this.checkService.set(check);
     }
@@ -58,6 +77,6 @@ export class SongsListComponent implements OnInit, OnDestroy {
 
 
   ngOnDestroy(): void {
-      this.checkSubscription.unsubscribe();
+    this.subscriptions.map(s => s.unsubscribe());
   }
 }

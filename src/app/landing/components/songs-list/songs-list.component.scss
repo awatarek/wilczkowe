@@ -1,27 +1,8 @@
 .content{
-    display: grid;
-    width: calc(100% - 20px);
+    display: block;
+    width: 100%;
     padding: 10px;
-
-    grid-template-columns: 1fr 3fr;
     font-size: 23px;
-
-    .action-menu{
-        padding:  88px 0 0 20px;
-
-        span{
-            transition: .3s;
-            line-height: 48px;
-            margin-bottom: 15px;
-            text-decoration: underline;
-            cursor: pointer;
-            
-            &:hover{
-                color: #EEBA03;
-                text-decoration-color: #EEBA03;
-            }
-        }
-    }
 
     .songs-list{
         .name{
@@ -75,8 +56,8 @@
                     content: "";
                     position: absolute;
                     display: none;
-                    left: 5px;
-                    width: 5px;
+                    left: 3px;
+                    width: 4px;
                     height: 10px;
                     border: solid white;
                     border-width: 0 2px 2px 0;

@@ -1,0 +1,16 @@
+.action-menu{
+    padding:  88px 0 0 20px;
+
+    span{
+        transition: .3s;
+        line-height: 48px;
+        margin-bottom: 15px;
+        text-decoration: underline;
+        cursor: pointer;
+        
+        &:hover{
+            color: #EEBA03;
+            text-decoration-color: #EEBA03;
+        }
+    }
+}

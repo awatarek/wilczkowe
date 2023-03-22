@@ -1,0 +1,8 @@
+<div class="action-menu">
+    <div *ngFor="let item of menuItems">
+        <span [routerLink]="item.hasRouter ? [item.route] : []"
+         (click)="item.hasOnClick ? item.canHaveValue ? item.function.next(item.value) : item.function.next('') : ''">
+         {{item.text}}
+        </span>
+    </div>
+</div>

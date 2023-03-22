@@ -12,6 +12,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import {SidebarModule} from 'primeng/sidebar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SongListGeneratorComponent } from './components/song-list-generator/song-list-generator.component';
+import { AddSongComponent } from './components/add-song/add-song.component';
+import { LayoutSidebarComponent } from './layout/layout-sidebar/layout-sidebar.component';
 @NgModule({
   declarations: [
     LandingComponent,
@@ -19,7 +21,9 @@ import { SongListGeneratorComponent } from './components/song-list-generator/son
     SongDetailsComponent,
     LayoutHeaderComponent,
     LayoutFooterComponent,
-    SongListGeneratorComponent
+    SongListGeneratorComponent,
+    AddSongComponent,
+    LayoutSidebarComponent
   ],
   imports: [
     CommonModule,

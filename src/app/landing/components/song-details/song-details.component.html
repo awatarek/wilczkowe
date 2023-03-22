@@ -1,9 +1,5 @@
 
 <div class="content">
-    <div class="action-menu">
-        <div (click)="addSong()">{{isInSongList ? "Usuń z śpiewnika" : "Dodaj do śpiewnika"}}</div>
-        <div [routerLink]="['']">Powrót do śpiewnika</div>
-    </div>
     <div class="song-details">
         <h3>{{"{{song.title}}"}}</h3>
         <p>{{"{{song.text}}"}}</p>
